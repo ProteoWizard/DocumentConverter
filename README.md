@@ -16,6 +16,10 @@ NodeJS - mammoth-js was written for nodejs
 
 ## Usage
 
+Clone the repo and install node modules
+
+    npm install
+
 To convert a directory just pass on the source and output paths:
 
     node .\lib\skyline-cli.js --options '
