@@ -30,13 +30,24 @@ To convert a directory just pass on the source and output paths:
 
 If no output path is provided conversion will be done in place and is destructive as it rearranges files.
 
-If you would like shared images to come from an existing shared image path then use the `existingSharedPath` option
+If you would like shared images to come from an existing shared image path then use the `existingSharedPath` option:
 
     node .\lib\skyline-cli.js --options '
     {
         ""sourcePath"": ""C:/Users/Eduardo/Documents/Tutorials"",
         ""outputPath"": ""C:/Users/Eduardo/Documents/ConvertedTutorials"",
         ""existingSharedPath"": ""C:/Users/Eduardo/repos/pwiz/pwiz_tools/Skyline/Documentation/Tutorials/shared""
+    }'
+
+If you would like to reconvert the skyline Tutorials directory then you can use the `inPlace` options:
+
+    node .\lib\skyline-cli.js --options '
+    {
+        ""sourcePath"": ""C:/Users/Eduardo/repos/pwiz/pwiz_tools/Skyline/Documentation/Tutorials"",
+        ""existingSharedPath"": ""C:/Users/Eduardo/repos/pwiz/pwiz_tools/Skyline/Documentation/Tutorials/shared"",
+        ""inPlace"": true,
+        ""regenerateImages"": false,
+        ""invariantFileNames"" : [ ""invariant"", ""invariantDraft"" ]
     }'
 
 The original skyline document migration used the following options:
@@ -58,7 +69,7 @@ The original skyline document migration used the following options:
             ""fb4dbc95d292fb4a388cf7348d7163d1"": ""protein-icon.png"",
             ""db31e7bd65781726d0fa9313065c7555"": ""right-side-docking-icon.png""
         },
-        ""subPaths"": [""Chinese"", ""Japanese""],
+        ""subPaths"": [""Chinese"", ""Japanese""]
     }'
 
 Where `sharedImageNameOverride` was used to identify which images we would use as a set of shared images based on their
