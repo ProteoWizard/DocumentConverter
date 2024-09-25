@@ -50,6 +50,14 @@ If you would like to reconvert the skyline Tutorials directory then you can use 
         ""invariantFileNames"" : [ ""invariant"", ""invariantDraft"" ]
     }'
 
+If you would like to just reprocess all html formatting only, then use the `postProcessOnly` option:
+
+    node .\lib\skyline-cli.js --options '
+    {
+        ""sourcePath"": ""C:/Users/Eduardo/repos/pwiz/pwiz_tools/Skyline/Documentation/Tutorials"",
+        ""postProcessOnly"": true
+    }'
+s
 The original skyline document migration used the following options:
 
     node .\lib\skyline-cli.js --options '
