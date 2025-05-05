@@ -20,66 +20,14 @@ Clone the repo and install node modules
 
     npm install
 
-To convert a directory just pass on the source and output paths:
+To convert a directory just input a source path to convert:
 
-    node .\lib\skyline-cli.js --options '
-    {
-        ""sourcePath"": ""C:/Users/Eduardo/Documents/Tutorials"",
-        ""outputPath"": ""C:/Users/Eduardo/Documents/ConvertedTutorials""
-    }'
+    node ./lib/skyline-cli.js --sourcePath 'C:/Users/Eduardo/Documents/TutorialSandbox'
 
-If no output path is provided conversion will be done in place and is destructive as it rearranges files.
+Files will be written to an `output` folder relative to the source path. You can also supply an output path:
+    
+    node ./lib/skyline-cli.js --sourcePath 'C:/Users/Eduardo/Documents/TutorialSandbox' --outputPath 'C:/Users/Eduardo/Documents/TutorialSandbox/output'
 
 If you would like shared images to come from an existing shared image path then use the `existingSharedPath` option:
 
-    node .\lib\skyline-cli.js --options '
-    {
-        ""sourcePath"": ""C:/Users/Eduardo/Documents/Tutorials"",
-        ""outputPath"": ""C:/Users/Eduardo/Documents/ConvertedTutorials"",
-        ""existingSharedPath"": ""C:/Users/Eduardo/repos/pwiz/pwiz_tools/Skyline/Documentation/Tutorials/shared""
-    }'
-
-If you would like to reconvert the skyline Tutorials directory then you can use the `inPlace` options:
-
-    node .\lib\skyline-cli.js --options '
-    {
-        ""sourcePath"": ""C:/Users/Eduardo/repos/pwiz/pwiz_tools/Skyline/Documentation/Tutorials"",
-        ""existingSharedPath"": ""C:/Users/Eduardo/repos/pwiz/pwiz_tools/Skyline/Documentation/Tutorials/shared"",
-        ""inPlace"": true,
-        ""regenerateImages"": false,
-        ""invariantFileNames"" : [ ""invariant"", ""invariantDraft"" ]
-    }'
-
-If you would like to just reprocess all html formatting only, then use the `postProcessOnly` option:
-
-    node .\lib\skyline-cli.js --options '
-    {
-        ""sourcePath"": ""C:/Users/Eduardo/repos/pwiz/pwiz_tools/Skyline/Documentation/Tutorials"",
-        ""postProcessOnly"": true
-    }'
-s
-The original skyline document migration used the following options:
-
-    node .\lib\skyline-cli.js --options '
-    {
-        ""sourcePath"": ""C:/Users/Eduardo/repos/pwiz/pwiz_tools/Skyline/Documentation/Tutorials"",
-        ""sharedImageNameOverride"": {
-            ""837cff4e0a6efc52242d8c54349ad19f"": ""en/skyline-blank-document.png"",
-            ""2d6e01d456e8407ec965f49481430385"": ""zh-CHS/skyline-blank-document.png"",
-            ""a40aef0d11e45f571061a78a35e2b27d"": ""ja/skyline-blank-document.png"",
-            ""f5bcf8c079d513fc4c30816f2a992e41"": ""en/proteomics-interface.png"",
-            ""e770486817d0cefc045395dd38ded903"": ""zh-CHS/proteomics-interface.png"",
-            ""809baf27bc85792524f0fdcc4ada5c3b"": ""ja/proteomics-interface.png"",
-            ""8bf47e4eb29563d8f2d3db1046375e3a"": ""en/molecule-interface.png"",
-            ""a36eae3008f7cc932f6717963ac5f523"": ""zh-CHS/molecule-interface.png"",
-            ""458de20a137e95913a5b228421dac36d"": ""ja/molecule-interface.png"",
-            ""df6dd2f25587335b4797e7031a50e6b9"": ""molecule-icon.png"",
-            ""fb4dbc95d292fb4a388cf7348d7163d1"": ""protein-icon.png"",
-            ""db31e7bd65781726d0fa9313065c7555"": ""right-side-docking-icon.png""
-        },
-        ""subPaths"": [""Chinese"", ""Japanese""]
-    }'
-
-Where `sharedImageNameOverride` was used to identify which images we would use as a set of shared images based on their
-md5 hash. It is also possible to use the `sharedImageThreshold` option to pass in an integer which creates shared images
-based on a count of images it sees X amount of times.
+    node .\lib\skyline-cli.js --sourcePath 'C:/Users/Eduardo/Documents/TutorialSandbox' --existingSharedPath 'C:/Users/Eduardo/repos/pwiz/pwiz_tools/Skyline/Documentation/Tutorials/shared'
