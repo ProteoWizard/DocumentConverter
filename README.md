@@ -4,9 +4,7 @@ Forked from https://github.com/mwilliamson/mammoth.js
 
 This fork was created in efforts to migrate Skyline tutorials from docx to html.
 In this effort we found the need for additional features or deviations from mammoth.js.
-This project can be used for any new documents that require this migration and this
-documentation will cover how to do that using the same process and settings for the
-original migration.
+This project can be used for any new documents that require this migration.
 
 ## Requirements
 
